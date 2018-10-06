@@ -72,6 +72,7 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 					<Add directory="USER" />
 					<Add directory="ADN-X" />
 					<Add directory="CLASSES" />
+					<Add directory="HEADERS" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -89,6 +90,7 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 					<Add directory="USER" />
 					<Add directory="ADN-X" />
 					<Add directory="CLASSES" />
+					<Add directory="HEADERS" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -146,7 +148,9 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 		<Unit filename="FONTS/FreeSerifItalic.ttf" />
 		<Unit filename="GPL LICENSE/Licencia GPL (traduccion NO OFICIAL - castellano argentina).txt" />
 		<Unit filename="GPL LICENSE/Licencia GPL original (ingles).txt" />
+		<Unit filename="HEADERS/clsMotor.h" />
 		<Unit filename="LOG/stdout.txt" />
+		<Unit filename="SOURCES/clsMotor.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
