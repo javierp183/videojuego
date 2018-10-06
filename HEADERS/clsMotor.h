@@ -13,6 +13,7 @@ class clsMotor
         clsError error;
         clsMode mode;
         clsScreen screen;
+        bool salir;
 
     public:
         int init();
