@@ -11,8 +11,10 @@ int clsMotor::init()
                           mode.getScrHeight(),
                           mode.getScrDepth(),
                           ENABLED,
-                          RESIZABLE));
+                          FULLSCREEN));
     if(error.get()) return error.get();
+
+    salir = false;
 
     return error.get();
 }
@@ -22,7 +24,6 @@ int clsMotor::run()
     error.set(0);
     screen.clean(WHITE);
     screen.refresh();
-    bool salir = false;
     while(!salir)
     {
         if(event.wasEvent())
@@ -72,7 +73,10 @@ int clsMotor::keyPressed()
 
     switch(event.getKey())
     {
-
+        case KEY_ESCAPE:
+        {
+            salir = true;
+        }
     }//Fin switch
 
     return error.get();
