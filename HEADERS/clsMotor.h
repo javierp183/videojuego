@@ -5,9 +5,16 @@
 #include <clsError.h>
 #include <clsMode.h>
 #include <clsScreen.h>
+#include <clsMotor.h>
+#include <clsIntro.h>
+#include <clsTimer.h>
 
 class clsMotor
 {
+    private:
+        clsIntro intro;
+        clsTimer timer;
+
     protected:
         clsEvent event;
         clsError error;

@@ -1,13 +1,7 @@
-jue oct 18 18:15:43 -03 2018
+vie oct 19 20:01:04 -03 2018
 ##########################################################
            Sistema ADN-X (v. 14.11 estable)
 **********************************************************
 
 Modo grafico iniciado correctamente.
 Monitor de video iniciado correctamente.
-
-**********************************************************
-       El proyecto ADN-X ha finalizado correctamente      
-##########################################################
-Monitor de video cerrado correctamente.
-El modo grafico se cerro correctamente.

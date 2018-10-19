@@ -11,10 +11,20 @@ int clsMotor::init()
                           mode.getScrHeight(),
                           mode.getScrDepth(),
                           ENABLED,
-                          FULLSCREEN));
+                          RESIZABLE));
     if(error.get()) return error.get();
 
     salir = false;
+
+//Imagen de introduccion del Video Juego RPG con patas.
+    error.set(intro.init(&screen));
+    if(error.get())
+    {
+
+            error.show(true);
+            return error.get();
+
+    }
 
     return error.get();
 }
@@ -22,8 +32,11 @@ int clsMotor::init()
 int clsMotor::run()
 {
     error.set(0);
-    screen.clean(WHITE);
+    timer.wait(3000);
+    intro.paste(screen.getPtr());
     screen.refresh();
+    screen.clean(BLACK);
+
     while(!salir)
     {
         if(event.wasEvent())
