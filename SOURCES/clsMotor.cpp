@@ -1,4 +1,5 @@
 #include "clsMotor.h"
+#include <clsScreen.h>
 
 int clsMotor::init()
 {
