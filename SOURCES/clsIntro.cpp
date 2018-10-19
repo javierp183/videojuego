@@ -7,7 +7,7 @@ int clsIntro::init(clsScreen *s)
     screen = s;
     setItems(1);
     setI(0);
-    error.set(load("/home/jpereyra/UTN/labo2/videojuego/IMG/Intro.png"));
+    error.set(load("IMG/Intro.png"));
     if(error.get())
     {
 
