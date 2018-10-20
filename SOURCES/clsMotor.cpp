@@ -33,10 +33,8 @@ int clsMotor::init()
 int clsMotor::run()
 {
     error.set(0);
-    timer.wait(3000);
     intro.paste(screen.getPtr());
     screen.refresh();
-    screen.clean(BLACK);
 
     while(!salir)
     {
@@ -73,6 +71,10 @@ int clsMotor::run()
                     error.set(mouseMotion());
                     if(error.get()) return error.get();
 
+                }break;
+                case SDL_QUIT:
+                {
+                    return 0;
                 }break;
             }//Fin switch
         }//Fin if
@@ -157,8 +159,8 @@ int clsMotor::mouseUp()
 int clsMotor::mouseMotion()
 {
     error.set(0);
-    int x = event.getCursorX();
-    int y = event.getCursorY();
+//    int x = event.getCursorX();
+//    int y = event.getCursorY();
 
     return error.get();
 }
