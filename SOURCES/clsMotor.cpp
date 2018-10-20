@@ -53,7 +53,7 @@ int clsMotor::run()
                 {
                     return 0;
                 }break;
-            }//Fin switch
+            }//Fin switch/
         }//Fin if
     }//Fin while
 
