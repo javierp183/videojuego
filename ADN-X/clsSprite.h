@@ -114,13 +114,10 @@ class clsSprite
     virtual ~clsSprite();          // Destructor implicito.
     int load(const char*);         // Carga una imagen en el elemento actual
                                    // del sprite
-    void paste(SDL_Surface*);      // Copia el sprite en sus propias coordenadas
+
+    void paste(SDL_Surface*,
+               int=0,int=0,bool=false);      // Copia el sprite en sus propias coordenadas
                                    // sobre la superficie destino.
-
-
-    void paste(int,                // Copia el sprite en las coordenadas x, y de
-               int,                // la superficie destino.
-               SDL_Surface*);
 
     void setName(const char*);     // Pone un nuevo nombre al sprite.
     void setItems(int);            // Asigna un vector de imagenes a un objeto
@@ -130,6 +127,7 @@ class clsSprite
     void setY(int);                // Cambia la coordenada y del sprite.
     void setOpacity(int);          // Cambia el nivel de opacidad del sprite.
     void setState(tSpriteState);   // Establece el estado del sprite.
+    void setTransparent(rgbColor);
 
     char* getName();               // Devuelve el nombre del sprite.
     int getX();                    // Devuelve la coordenada x del sprite.

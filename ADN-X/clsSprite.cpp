@@ -209,37 +209,20 @@ int clsSprite::setI(int item)
 // PARAMETROS: SDL_Surface* sup  -> puntero a la superficie destino.
 // DEVUELVE  : NADA.
 //-----------------------------------------------------------------------------
-void clsSprite::paste(SDL_Surface* sup)
+void clsSprite::paste(SDL_Surface* sup, int X, int Y, bool sumPos)
 {
-  rgbColor cDot;
   int W=spritePointer[i].getPtr()->w;
   int H=spritePointer[i].getPtr()->h;
-  SDL_Rect area = {getX(),getY(),W,H};
+  SDL_Rect area;
+  if(sumPos)
+  {
+    area = {getX()+X, getY()+Y, W, H};
+  }
+  else
+  {
+    area = {X, Y, W, H};
+  }
   SDL_BlitSurface(spritePointer[i].getPtr(), NULL, sup,&area);
-}
-
-
-//=============================================================================
-// METODO    : void paste(unsigned int X,unsigned int Y,SDL_Surface* sup)
-// ACCION    : Copia al sprite en las coordenadas (X,Y) de la superficie
-//             designada en el parametro sup.
-//
-// PARAMETROS: unsigned int X    -> coordenada Y de la pantalla.
-//             unsigned int Y    -> coordenada X de la pantalla.
-//             SDL_Surface* sup  -> puntero a la superficie destino.
-// DEVUELVE  : NADA.
-//-----------------------------------------------------------------------------
-void clsSprite::paste(int X,int Y,SDL_Surface* sup)
-{
-  rgbColor cDot;
-  int W=spritePointer[i].getPtr()->w;
-  int H=spritePointer[i].getPtr()->h;
-
-  SDL_Rect area = {X,Y,W,H};
-  SDL_BlitSurface(spritePointer[i].getPtr(), NULL, sup,&area);
-
-  setX(X);
-  setY(Y);
 }
 
 //=============================================================================
@@ -715,6 +698,11 @@ bool clsSprite::getMatch(clsSprite* spr)
     }
   }
   return false;
+}
+
+void clsSprite::setTransparent(rgbColor transparent)
+{
+    this->transparent = transparent;
 }
 
 //### FIN DE ARCHIVO ##########################################################
