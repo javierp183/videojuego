@@ -5,7 +5,7 @@
 		<Option title="juego_rpg_cosmico" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option show_notes="1">
+		<Option show_notes="0">
 			<notes>
 				<![CDATA[#########################################
 
@@ -104,6 +104,7 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 		<Linker>
 			<Add option="`sdl-config --libs`" />
 		</Linker>
+		<Unit filename="../../../../UTN/labo2/videojuego/SOURCES/clsSalida.cpp" />
 		<Unit filename="ADN-X NEWS/adn-X - News (castellano).txt" />
 		<Unit filename="ADN-X/adnConsts.h" />
 		<Unit filename="ADN-X/clsAudio.cpp" />
@@ -152,6 +153,7 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 		<Unit filename="HEADERS/clsMotor.h" />
 		<Unit filename="HEADERS/clsObjeto.h" />
 		<Unit filename="HEADERS/clsPersonaje.h" />
+		<Unit filename="HEADERS/clsSalida.h" />
 		<Unit filename="LOG/stdout.txt" />
 		<Unit filename="SOURCES/clsIntro.cpp" />
 		<Unit filename="SOURCES/clsMotor.cpp" />

@@ -97,7 +97,6 @@
 #include <clsLog.h>         // stdout.txt para Linux.
 #include <clsError.h>       // Administrador de errores.
 #include <clsMotor.h>
-#include <clsText.h>
 
 using namespace std;        // Espacio de nombres estandar.
 
@@ -129,7 +128,9 @@ int main ( int argc, char** argv )
   // OBJETOS NECESARIOS PARA EL PROGRAMA
   clsError error;   // Administrador de errores  (necesario).
   clsMotor motor;
-  clsText text;
+
+
+
 
   //--------------------------------
   // CODIGO DEL PROGRAMA PRINCIPAL

@@ -7,7 +7,7 @@ int clsIntro::init(clsScreen *s)
     screen = s;
     setItems(1);
     setI(0);
-    error.set(load("IMG/intro01.png"));
+    error.set(load("IMG/INTRO01.png"));
     if(error.get())
     {
 
