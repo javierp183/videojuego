@@ -1,5 +1,7 @@
 #include "clsMotor.h"
 #include <clsScreen.h>
+#include <clsAudio.h>
+#include <clsMusic.h>
 
 int clsMotor::init()
 {
@@ -21,20 +23,44 @@ int clsMotor::init()
     error.set(intro.init(&screen));
     if(error.get())
     {
-
             error.show(true);
             return error.get();
-
     }
+    error.set(texto.init());
+    if(error.get())
+    {
+            error.show(true);
+            return error.get();
+    }
+    error.set(audio.init());
+    if(error.get())
+    {
+            error.show(true);
+            return error.get();
+    }
+
+
 
     return error.get();
 }
 
 int clsMotor::run()
 {
+
     error.set(0);
+
+    music.loadMusic("MUSICA/PRESENTACION.mp3");
+    music.playMusic(1);
+
     intro.paste(screen.getPtr());
     screen.refresh();
+    texto.loadFont("FONTS/FreeMono.ttf",30);
+    texto.setFontColor(WHITE);
+    texto.write("Magic Software",150,500,screen.getPtr());
+    texto.write("Presenta",170,550,screen.getPtr());
+    screen.refresh();
+
+
 
     while(!salir)
     {
@@ -47,8 +73,12 @@ int clsMotor::run()
                     if(event.getKey() == KEY_ESCAPE)
                     {
                     salir = true;
+                    }else if(event.getKey() == KEY_ENTER)
+                    {
+                        music.stopMusic();
                     }
                 }break;
+
                 case SDL_QUIT:
                 {
                     return 0;
