@@ -1,7 +1,4 @@
 #include "clsMotor.h"
-#include <clsScreen.h>
-#include <clsAudio.h>
-#include <clsMusic.h>
 
 int clsMotor::init()
 {
