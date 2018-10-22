@@ -104,7 +104,6 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 		<Linker>
 			<Add option="`sdl-config --libs`" />
 		</Linker>
-		<Unit filename="../../../../UTN/labo2/videojuego/SOURCES/clsSalida.cpp" />
 		<Unit filename="ADN-X NEWS/adn-X - News (castellano).txt" />
 		<Unit filename="ADN-X/adnConsts.h" />
 		<Unit filename="ADN-X/clsAudio.cpp" />
@@ -159,6 +158,7 @@ Avis adn++ es un producto registrado de Avis SOFTWARE.
 		<Unit filename="SOURCES/clsMotor.cpp" />
 		<Unit filename="SOURCES/clsObjeto.cpp" />
 		<Unit filename="SOURCES/clsPersonaje.cpp" />
+		<Unit filename="SOURCES/clsSalida.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
