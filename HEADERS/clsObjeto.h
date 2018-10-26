@@ -10,6 +10,8 @@ class clsObjeto
     protected:
 
     private:
+        int alto,ancho;
+        bool itera;
 };
 
 #endif // CLSOBJETO_H

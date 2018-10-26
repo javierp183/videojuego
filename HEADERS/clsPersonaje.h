@@ -10,6 +10,11 @@ class clsPersonaje
     protected:
 
     private:
+        int Nvida,alto,ancho;
+        int fuerza,magias,arma;
+        char nombre[10];
+
+
 };
 
 #endif // CLSPERSONAJE_H
