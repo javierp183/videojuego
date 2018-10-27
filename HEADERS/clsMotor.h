@@ -12,6 +12,7 @@
 #include <clsMusic.h>
 #include <clsAudio.h>
 #include <clsSoundEffect.h>
+#include <clsPersonaje.h>
 
 
 class clsMotor
