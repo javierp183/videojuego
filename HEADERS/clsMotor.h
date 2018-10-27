@@ -13,6 +13,7 @@
 #include <clsAudio.h>
 #include <clsSoundEffect.h>
 
+
 class clsMotor
 {
     private:
@@ -21,6 +22,7 @@ class clsMotor
         clsText texto;
         clsMusic music;
         clsAudio audio;
+
 
     protected:
         clsEvent event;

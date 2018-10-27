@@ -16,7 +16,7 @@ int clsMotor::init()
 
     salir = false;
 
-//Imagen de introduccion del Video Juego RPG con patas.
+//Imagen de introduccion del Video Juego RPG.
     error.set(intro.init(&screen));
     if(error.get())
     {
@@ -38,6 +38,7 @@ int clsMotor::init()
 
 
 
+
     return error.get();
 }
 
@@ -45,22 +46,26 @@ int clsMotor::run()
 {
 
     error.set(0);
-
     music.loadMusic("MUSICA/PRESENTACION.mp3");
     music.playMusic(1);
 
-    intro.paste(screen.getPtr());
     screen.refresh();
     texto.loadFont("FONTS/FreeMono.ttf",30);
     texto.setFontColor(WHITE);
-    texto.write("Magic Software",150,500,screen.getPtr());
-    texto.write("Presenta",170,550,screen.getPtr());
+    texto.write("Magic Software",400,200,screen.getPtr());
+    texto.write("Presenta",100,400,screen.getPtr());
+    texto.write("EL RPG!",200,500,screen.getPtr());
     screen.refresh();
 
 
 
     while(!salir)
     {
+        timer.wait(150);
+        intro.animar();
+
+        screen.refresh();
+
         if(event.wasEvent())
         {
             switch(event.getEventType())
@@ -69,6 +74,7 @@ int clsMotor::run()
                 {
                     if(event.getKey() == KEY_ESCAPE)
                     {
+                    music.stopMusic();
                     salir = true;
                     }else if(event.getKey() == KEY_ENTER)
                     {
@@ -86,3 +92,28 @@ int clsMotor::run()
 
     return error.get();
 }
+
+
+//int clsMotor::keyPressed()
+//{
+  //  switch(event.getKey())
+   // {
+    //case KEY_UP:
+      //  {
+        //    heroe.caminarY(-1);
+        //}break;
+    //case KEY_DOWN:
+      //  {
+        //    heroe.caminarY(1);
+        //}break;
+    //case KEY_LEFT:
+      //  {
+        //    heroe.caminarX(-1);
+        //}break;
+    //case KEY_RIGHT:
+      //  {
+        //    heroe.caminarX(1);
+        //}break;
+   // }
+   // return 0;
+//}

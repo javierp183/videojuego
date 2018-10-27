@@ -10,6 +10,7 @@ class clsIntro : public clsSprite
     public:
        void inherit(){};
        int init(clsScreen *s);
+       int animar();
     private:
         clsScreen *screen;
 };
