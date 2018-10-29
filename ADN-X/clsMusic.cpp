@@ -92,11 +92,12 @@ char* clsMusic::getName()
 // PARAMETROS: const char* path --> ruta y nombre del archivo mp3.
 // DEVUELVE  : int --> codigo de error. (NULL = error).
 //-----------------------------------------------------------------------------
-int clsMusic::loadMusic(const char* path)
+int clsMusic::load(const char* path)
 {
     error.set(0);
     music = Mix_LoadMUS(path);
     if(music==NULL) error.set(202);
+    status = 0;
     return error.get();
 }
 
@@ -108,9 +109,13 @@ int clsMusic::loadMusic(const char* path)
 //                            -1 = indefinidamente.
 // DEVUELVE  : NADA.
 //-----------------------------------------------------------------------------
-void clsMusic::playMusic(int t)
+void clsMusic::play(int t)
 {
-    Mix_PlayMusic(music,t);
+    if( Mix_PlayingMusic() == 0 )
+    {
+        Mix_PlayMusic(music,t);
+        status = 1;
+    }
 }
 
 //=============================================================================
@@ -119,9 +124,43 @@ void clsMusic::playMusic(int t)
 // PARAMETROS: NADA.
 // DEVUELVE  : NADA.
 //-----------------------------------------------------------------------------
-void clsMusic::stopMusic()
+void clsMusic::pause()
 {
-    Mix_HaltMusic();
+    if( Mix_PlayingMusic() )
+    {
+        Mix_PauseMusic();
+        status = 2;
+    }
+}
+
+//=============================================================================
+// METODO    : void stopMusic()
+// ACCION    : Detiene un archivo de musica.
+// PARAMETROS: NADA.
+// DEVUELVE  : NADA.
+//-----------------------------------------------------------------------------
+void clsMusic::resume()
+{
+    if( Mix_PlayingMusic() && Mix_PausedMusic() == 1)
+    {
+        Mix_ResumeMusic();
+        status = 1;
+    }
+}
+
+//=============================================================================
+// METODO    : void stopMusic()
+// ACCION    : Detiene un archivo de musica.
+// PARAMETROS: NADA.
+// DEVUELVE  : NADA.
+//-----------------------------------------------------------------------------
+void clsMusic::stop()
+{
+    if( Mix_PlayingMusic() )
+    {
+        Mix_HaltMusic();
+        status = 0;
+    }
 }
 
 //=============================================================================
@@ -130,10 +169,14 @@ void clsMusic::stopMusic()
 // PARAMETROS: NADA.
 // DEVUELVE  : NADA.
 //-----------------------------------------------------------------------------
-void clsMusic::closeMusic()
+void clsMusic::close()
 {
     Mix_FreeMusic(music);
+}
 
+int clsMusic::getStatus()
+{
+    return status;
 }
 
 //### FIN DE ARCHIVO ##########################################################
