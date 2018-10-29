@@ -17,7 +17,7 @@ class clsPersonaje : public clsSprite
     protected:
 
     private:
-            clsScreen *screen;
+    clsScreen *screen;
     tDireccion direccion;
     int velX;
     int velY;

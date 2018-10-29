@@ -20,20 +20,20 @@ int clsMotor::init()
     error.set(intro.init(&screen));
     if(error.get())
     {
-            error.show(true);
-            return error.get();
+        error.show(true);
+        return error.get();
     }
     error.set(texto.init());
     if(error.get())
     {
-            error.show(true);
-            return error.get();
+        error.show(true);
+        return error.get();
     }
     error.set(audio.init());
     if(error.get())
     {
-            error.show(true);
-            return error.get();
+        error.show(true);
+        return error.get();
     }
 
 
@@ -46,8 +46,8 @@ int clsMotor::run()
 {
 
     error.set(0);
-    music.loadMusic("MUSICA/PRESENTACION.mp3");
-    music.playMusic(1);
+    music.load("MUSICA/PRESENTACION.mp3");
+    music.play(1);
 
     screen.refresh();
     texto.loadFont("FONTS/FreeMono.ttf",30);
@@ -61,7 +61,6 @@ int clsMotor::run()
 
     while(!salir)
     {
-        timer.wait(150);
         intro.animar();
 
         screen.refresh();
@@ -72,13 +71,26 @@ int clsMotor::run()
             {
                 case KEY_PRESSED:
                 {
-                    if(event.getKey() == KEY_ESCAPE)
+                    switch(event.getKey())
                     {
-                    music.stopMusic();
-                    salir = true;
-                    }else if(event.getKey() == KEY_ENTER)
-                    {
-                        music.stopMusic();
+                    case KEY_ENTER:
+                        {
+                            if( music.getStatus() == 0 )
+                                music.play(1);
+                            else
+                                music.stop();
+                        }break;
+                    case KEY_SPACE:
+                        {
+                            if( music.getStatus() == 1 )
+                                music.pause();
+                            else
+                                music.resume();
+                        }break;
+                    case KEY_ESCAPE:
+                        {
+                            salir = true;
+                        }break;
                     }
                 }break;
 
@@ -86,8 +98,11 @@ int clsMotor::run()
                 {
                     return 0;
                 }break;
-            }//Fin switch/
+            }//Fin switch
         }//Fin if
+
+        timer.wait(150);
+
     }//Fin while
 
     return error.get();
