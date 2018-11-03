@@ -13,15 +13,16 @@ class clsIntro : public clsSprite
 {
     public:
        void inherit(){};
-       int init(clsScreen *s,clsMusic *m,clsEvent *e);
+       int init(clsScreen *s,clsMusic *m,clsEvent *e,clsTimer *t);
        void animar();
        int run();
     private:
         clsScreen *screen;
         clsMusic *music;
         clsEvent *event;
+        clsTimer *timer;
         clsText texto;
-        //clsTimer timer;
+
 
 };
 

@@ -24,7 +24,6 @@ class clsMotor
         clsMusic music;
         clsAudio audio;
 
-
     protected:
         clsEvent event;
         clsError error;

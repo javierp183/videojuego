@@ -17,7 +17,7 @@ int clsMotor::init()
     salir = false;
 
 //Imagen de introduccion del Video Juego RPG.
-    error.set(intro.init(&screen,&music,&event));
+    error.set(intro.init(&screen,&music,&event,&timer));
     if(error.get())
     {
             error.show(true);
@@ -45,12 +45,12 @@ int clsMotor::init()
 
 int clsMotor::run()
 {
-    error.set(intro.run());
-    if(error.get())
-    {
-        error.show(true);
-        return error.get();
-    }
+    //error.set(intro.run());
+    //if(error.get())
+    //{
+    //    error.show(true);
+    //    return error.get();
+    //}
 
     while(!salir)
     {
