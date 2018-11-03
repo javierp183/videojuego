@@ -1,10 +1,11 @@
 #include "clsIntro.h"
 
-int clsIntro::init(clsScreen *s,clsMusic *m,clsEvent *e)
+int clsIntro::init(clsScreen *s,clsMusic *m,clsEvent *e,clsTimer *t)
 {
     screen = s;
     music = m;
     event = e;
+    timer = t;
 
     setItems(14);
     char ruta [] = "IMAGES/MAGOINTRO/00.jpg";
@@ -59,7 +60,8 @@ int clsIntro::run()
 
     while(true)
     {
-        //timer.wait(150);
+
+       timer->wait(150);
        clsIntro::animar();
        screen->refresh();
 
