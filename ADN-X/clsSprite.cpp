@@ -216,11 +216,17 @@ void clsSprite::paste(SDL_Surface* sup, int X, int Y, bool sumPos)
   SDL_Rect area;
   if(sumPos)
   {
-    area = {getX()+X, getY()+Y, W, H};
+    area.x = getX()+X;
+    area.y = getY()+Y;
+    area.h = H;
+    area.w = W;
   }
   else
   {
-    area = {X, Y, W, H};
+    area.x = X;
+    area.y = Y;
+    area.h = H;
+    area.w = W;
   }
   SDL_BlitSurface(spritePointer[i].getPtr(), NULL, sup,&area);
 }

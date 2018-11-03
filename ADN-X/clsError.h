@@ -75,7 +75,7 @@ class clsError
   public:
     clsError();     // Constructor.
 
-    void show(bool);// Muestra el mensaje de error asociado con el codigo
+    void show();    // Muestra el mensaje de error asociado con el codigo
                     // de errorId.
 
     void set(int);  // Establece el codigo de error del sistema.

@@ -96,7 +96,7 @@ void clsError::set(int err)
 //                          false = sin endl / true = con endl.
 // DEVUELVE  : NADA.
 //-----------------------------------------------------------------------------
-void clsError::show(bool rtn=false)
+void clsError::show()
 {
     char msg[256];
     switch(errorId)
@@ -193,8 +193,7 @@ void clsError::show(bool rtn=false)
                   break;
 
     };
-    cout <<msg;
-    if(rtn)cout <<endl;
+    cout << msg <<endl;
 }
 
 //=============================================================================
