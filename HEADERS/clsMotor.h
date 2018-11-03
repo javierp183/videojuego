@@ -35,11 +35,6 @@ class clsMotor
     public:
         int init();
         int run();
-        int keyPressed();
-        int keyReleased();
-        int mouseDown();
-        int mouseUp();
-        int mouseMotion();
 };
 
 #endif // CLSMOTOR_H

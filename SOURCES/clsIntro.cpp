@@ -1,21 +1,11 @@
 #include "clsIntro.h"
-//int clsIntro::init(clsScreen *s)
-//{
-//   screen = s;
-//   setItems(1);
-//   setI(0);
-//   error.set(load("IMG/INTRO/00.jpg"));
-//   if(error.get())
-//   {
-//       error.show(true);
-//       return error.get();
-//   }
-//   return error.get();
-//}
 
-int clsIntro::init(clsScreen *s)
+int clsIntro::init(clsScreen *s,clsMusic *m,clsEvent *e)
 {
     screen = s;
+    music = m;
+    event = e;
+
     setItems(14);
     char ruta [] = "IMAGES/MAGOINTRO/00.jpg";
     for(int d=0; d<1; d++)
@@ -39,7 +29,7 @@ int clsIntro::init(clsScreen *s)
 }
 
 
-int clsIntro::animar()
+void clsIntro::animar()
 {
     paste(screen->getPtr());
     if(getI() == 9)
@@ -53,7 +43,31 @@ int clsIntro::animar()
 
 }
 
+int clsIntro::run()
+{
+    error.set(0);
+    music->load("MUSICA/PRESENTACION.mp3");
+    music->play(1);
 
+    screen->refresh();
+    texto.loadFont("FONTS/FreeMono.ttf",30);
+    texto.setFontColor(WHITE);
+    texto.write("Magic Software",400,200,screen->getPtr());
+    texto.write("Presenta",100,400,screen->getPtr());
+    texto.write("EL RPG!",200,500,screen->getPtr());
+    screen->refresh();
+
+    while(true)
+    {
+        //timer.wait(150);
+       clsIntro::animar();
+       screen->refresh();
+
+    }
+
+
+    return 0;
+}
 
 
 
