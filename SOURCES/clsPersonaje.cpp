@@ -10,7 +10,7 @@ int clsPersonaje::init(clsScreen *s)
     error.set(load("IMAGES/PERSONAJEIMG/24.gif"));
     if(error.get())
     {
-        error.show(true);
+        error.show();
         return error.get();
     }
     velX = 0;

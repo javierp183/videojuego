@@ -11,26 +11,21 @@
 #include <clsText.h>
 #include <clsMusic.h>
 #include <clsAudio.h>
-#include <clsSoundEffect.h>
-#include <clsPersonaje.h>
-
+#include <clsJuego.h>
 
 class clsMotor
 {
     private:
-        clsIntro intro;
-        clsTimer timer;
-        clsText texto;
-        clsMusic music;
         clsAudio audio;
-
-
-    protected:
-        clsEvent event;
         clsError error;
+        clsEvent event;
+        clsIntro intro;
+        clsJuego juego;
         clsMode mode;
+        clsMusic music;
         clsScreen screen;
-        bool salir;
+        clsText texto;
+        clsTimer timer;
 
     public:
         int init();
