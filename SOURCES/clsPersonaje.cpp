@@ -8,11 +8,7 @@ int clsPersonaje::init(clsScreen *s)
     setItems(1);
     setI(0);
     error.set(load("IMAGES/PERSONAJEIMG/24.gif"));
-    if(error.get())
-    {
-        error.show();
-        return error.get();
-    }
+    if(error.get()) return error.get();
     velX = 0;
     velY = 0;
     return error.get();

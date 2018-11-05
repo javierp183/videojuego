@@ -111,11 +111,8 @@ int clsMusic::load(const char* path)
 //-----------------------------------------------------------------------------
 void clsMusic::play(int t)
 {
-    if( Mix_PlayingMusic() == 0 )
-    {
-        Mix_PlayMusic(music,t);
-        status = 1;
-    }
+    Mix_PlayMusic(music,t);
+    status = 1;
 }
 
 //=============================================================================
@@ -126,11 +123,8 @@ void clsMusic::play(int t)
 //-----------------------------------------------------------------------------
 void clsMusic::pause()
 {
-    if( Mix_PlayingMusic() )
-    {
-        Mix_PauseMusic();
-        status = 2;
-    }
+    Mix_PauseMusic();
+    status = 2;
 }
 
 //=============================================================================
@@ -141,11 +135,8 @@ void clsMusic::pause()
 //-----------------------------------------------------------------------------
 void clsMusic::resume()
 {
-    if( Mix_PlayingMusic() && Mix_PausedMusic() == 1)
-    {
-        Mix_ResumeMusic();
-        status = 1;
-    }
+    Mix_ResumeMusic();
+    status = 1;
 }
 
 //=============================================================================
@@ -156,11 +147,8 @@ void clsMusic::resume()
 //-----------------------------------------------------------------------------
 void clsMusic::stop()
 {
-    if( Mix_PlayingMusic() )
-    {
-        Mix_HaltMusic();
-        status = 0;
-    }
+    Mix_HaltMusic();
+    status = 0;
 }
 
 //=============================================================================

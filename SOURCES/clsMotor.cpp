@@ -14,19 +14,17 @@ int clsMotor::init()
                           RESIZABLE));
     if(error.get()) { error.show(); return error.get();}
 
-//Imagen de introduccion del Video Juego RPG.
-    error.set(intro.init(&screen,&music,&event));
+    error.set(audio.init());
     if(error.get()) { error.show(); return error.get();}
 
     error.set(texto.init());
     if(error.get()) { error.show(); return error.get();}
 
-    error.set(audio.init());
+    error.set(intro.init(&screen,&music,&event,&timer));
     if(error.get()) { error.show(); return error.get();}
 
     error.set(juego.init(&screen, &event, &music));
     if(error.get()) { error.show(); return error.get();}
-
 
     return error.get();
 }
@@ -34,10 +32,12 @@ int clsMotor::init()
 int clsMotor::run()
 {
     error.set(intro.run());
-    if(error.get()) { error.show(); return error.get();}
+    if(error.get() > 0) { error.show(); return error.get();}
+    if(error.get() < 0) return 0;
 
     error.set(juego.run());
-    if(error.get()) { error.show(); return error.get();}
+    if(error.get() > 0) { error.show(); return error.get();}
+    if(error.get() < 0) return 0;
 
     return error.get();
 }

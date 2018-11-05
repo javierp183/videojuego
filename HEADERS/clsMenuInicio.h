@@ -1,30 +1,31 @@
 #ifndef CLSMENUINICIO_H
 #define CLSMENUINICIO_H
 
+#include <clsSprite.h>
 #include <clsError.h>
 #include <clsScreen.h>
 #include <clsMusic.h>
 #include <clsEvent.h>
 
 
-class clsMenuInicio
+class clsMenuInicio : public clsSprite
 {
     public:
-        int init(clsScreen*, clsEvent*);
+        void inherit(){}
+        int init(clsScreen*, clsEvent*, clsMusic*);
         int run();
-        void cargarPartida(int);
         void nuevaPartida();
-        void guardarPartida();
+        void cargarPartida(int);
         void ayuda();
         void creditos();
         void salir();
 
 
     protected:
-        clsScreen* screen;
-        clsEvent* event;
+        clsScreen *screen;
+        clsEvent *event;
         clsError error;
-        clsMusic music;
+        clsMusic *music;
 };
 
 #endif // CLSMENUINICIO_H

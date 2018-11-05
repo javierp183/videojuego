@@ -116,7 +116,7 @@ class clsSprite
                                    // del sprite
 
     void paste(SDL_Surface*,
-               int=0,int=0,bool=false);      // Copia el sprite en sus propias coordenadas
+               int=0,int=0,bool=true);      // Copia el sprite en sus propias coordenadas
                                    // sobre la superficie destino.
 
     void setName(const char*);     // Pone un nuevo nombre al sprite.
